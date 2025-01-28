@@ -3,6 +3,20 @@ const botaoVoltar = document.getElementById('btn-voltar');
 const cartaoLista = document.querySelectorAll('.cartao');
 let cartaoAtual = 0;
 
+cartaoLista.forEach(cartao => {
+    cartao.addEventListener("click", function() {
+        const cartaVirada = cartao.querySelector('.carta-virada');
+
+        //virar o cartao
+        cartao.classList.toggle('virar');
+        //mostrar fundo da carta
+        cartaVirada.classList.toggle('mostrar-fundo-carta');
+
+        const descricao = cartao.querySelector('.descricao');
+        descricao.classList.toggle('esconder');
+    });
+});
+
 // botao avançar
 botaoAvancar.addEventListener("click", function () {
     if (cartaoAtual === cartaoLista.length - 1) return;
